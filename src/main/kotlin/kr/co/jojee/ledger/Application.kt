@@ -1,4 +1,4 @@
-package kr.co.jojee.boilerplate
+package kr.co.jojee.ledger
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

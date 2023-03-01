@@ -1,10 +1,10 @@
-package kr.co.jojee.boilerplate
+package kr.co.jojee.ledger
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class BpSpringbootApplicationTests {
+class ApplicationTests {
 
     @Test
     fun contextLoads() {
