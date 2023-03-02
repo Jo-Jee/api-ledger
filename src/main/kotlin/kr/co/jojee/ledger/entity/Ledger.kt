@@ -14,10 +14,10 @@ class Ledger(
     val id: Long? = null,
 
     @Column(nullable = false)
-    val budget: Long,
+    val budget: Long = 0,
 
     @Column(nullable = false)
-    val balance: Long
+    val balance: Long = 0
 ) {
     fun toDetails(): LedgerDetails {
         return LedgerDetails(

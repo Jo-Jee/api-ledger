@@ -1,9 +1,9 @@
 package kr.co.jojee.ledger.repository
 
-import kr.co.jojee.ledger.entity.Record
+import kr.co.jojee.ledger.entity.History
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface RecordRepository: JpaRepository<Record, Long?> {
+interface RecordRepository: JpaRepository<History, Long?> {
 }
