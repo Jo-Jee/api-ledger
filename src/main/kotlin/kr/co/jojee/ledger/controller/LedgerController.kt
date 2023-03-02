@@ -1,6 +1,6 @@
 package kr.co.jojee.ledger.controller
 
-import kr.co.jojee.ledger.dto.request.CreateRecordBody
+import kr.co.jojee.ledger.dto.request.CreateHistoryBody
 import kr.co.jojee.ledger.dto.response.HistoryDetails
 import kr.co.jojee.ledger.dto.response.LedgerDetails
 import kr.co.jojee.ledger.service.LedgerService
@@ -27,7 +27,7 @@ class LedgerController(
     }
 
     @PostMapping("/{id}/history")
-    fun createHistory(@PathVariable id: Long, @RequestBody createRecordBody: CreateRecordBody): HistoryDetails {
-        return ledgerService.createHistory(id, createRecordBody).toDetails()
+    fun createHistory(@PathVariable id: Long, @RequestBody createHistoryBody: CreateHistoryBody): HistoryDetails {
+        return ledgerService.createHistory(id, createHistoryBody).toDetails()
     }
 }
