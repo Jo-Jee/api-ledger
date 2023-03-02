@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.ManyToOne
 import kr.co.jojee.ledger.dto.response.HistoryDetails
+import java.time.LocalDateTime
 
 @Entity
 class History(
@@ -15,23 +16,27 @@ class History(
     val id: Long? = null,
 
     @Column(nullable = false)
-    val type: String,
+    var type: String,
 
     @Column(nullable = false)
-    val amount: Int,
+    var amount: Int,
 
     @Column(nullable = false)
-    val memo: String,
+    var memo: String,
 
     @ManyToOne
-    val ledger: Ledger
+    val ledger: Ledger,
+
+    @Column(nullable = false)
+    var timestamp: LocalDateTime? = null
 ) {
     fun toDetails(): HistoryDetails {
         return HistoryDetails(
             id = id,
             type = type,
             amount = amount,
-            memo = memo
+            memo = memo,
+            timestamp = timestamp.toString()
         )
     }
 }

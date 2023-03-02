@@ -8,6 +8,7 @@ import kr.co.jojee.ledger.repository.HistoryRepository
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
+import java.time.LocalDateTime
 
 @Service
 class LedgerService(
@@ -31,7 +32,8 @@ class LedgerService(
             type = createRecordBody.type,
             amount = createRecordBody.amount,
             memo = createRecordBody.memo,
-            ledger = ledger
+            ledger = ledger,
+            timestamp = LocalDateTime.parse(createRecordBody.timestamp)
         )
 
         return historyRepository.save(newHistory)

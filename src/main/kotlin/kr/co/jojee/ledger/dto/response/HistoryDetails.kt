@@ -4,5 +4,6 @@ data class HistoryDetails(
     val id: Long?,
     val type: String,
     val amount: Int,
-    val memo: String
+    val memo: String,
+    val timestamp: String
 )
