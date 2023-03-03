@@ -14,6 +14,9 @@ class Ledger(
     val id: Long? = null,
 
     @Column(nullable = false)
+    val name: String = "내 가계부",
+
+    @Column(nullable = false)
     val budget: Long = 0,
 
     @Column(nullable = false)
@@ -22,6 +25,7 @@ class Ledger(
     fun toDetails(): LedgerDetails {
         return LedgerDetails(
             id = id,
+            name = name,
             budget = budget,
             balance = balance
         )
