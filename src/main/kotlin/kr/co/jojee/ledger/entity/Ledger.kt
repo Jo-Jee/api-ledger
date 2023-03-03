@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import kr.co.jojee.ledger.dto.response.LedgerDetails
+import kr.co.jojee.ledger.dto.response.LedgerMetadata
 
 @Entity
 class Ledger(
@@ -28,6 +29,13 @@ class Ledger(
             name = name,
             budget = budget,
             balance = balance
+        )
+    }
+
+    fun toMetadata(): LedgerMetadata {
+        return LedgerMetadata(
+            id = id,
+            name = name
         )
     }
 }

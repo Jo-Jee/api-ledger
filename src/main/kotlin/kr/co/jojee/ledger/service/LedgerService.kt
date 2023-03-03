@@ -5,6 +5,7 @@ import kr.co.jojee.ledger.entity.Ledger
 import kr.co.jojee.ledger.entity.History
 import kr.co.jojee.ledger.repository.LedgerRepository
 import kr.co.jojee.ledger.repository.HistoryRepository
+import kr.co.jojee.ledger.repository.UserLedgerRepository
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
@@ -13,7 +14,8 @@ import java.time.LocalDateTime
 @Service
 class LedgerService(
     val ledgerRepository: LedgerRepository,
-    val historyRepository: HistoryRepository
+    val historyRepository: HistoryRepository,
+    val userLedgerRepository: UserLedgerRepository
 ) {
     fun findById(id: Long): Ledger {
         return ledgerRepository.findById(id).orElseThrow { throw ResponseStatusException(HttpStatus.NOT_FOUND, "가계부를 찾을 수 없습니다.") }
@@ -37,5 +39,9 @@ class LedgerService(
         )
 
         return historyRepository.save(newHistory)
+    }
+
+    fun findByUserId(id: Long): List<Ledger> {
+        return userLedgerRepository.findByUserId(id).map { it.ledger }
     }
 }
